@@ -7,10 +7,41 @@
   </head>
   
   <body>
-    <div id="root"></div>
+    <header><h1>Juegos Olímpicos Río de Janeiro 2016</h1></header>
+    <main class="main__container">
 
+      <div class="drop-down-lists">
 
-    
+        <select name="gender" id="gender">
+          <option disabled selected="">Selecciona género</option>
+          <option value="femenino">Femenino</option>
+          <option value="masculino">Masculino</option>
+        </select>
+
+        <select name="team" id="team">
+          <option disabled selected="">Selecciona país</option>
+        </select>
+
+        <select name="sport" id="sport">
+          <option disabled selected="">Selecciona deporte</option>
+        </select>
+
+        <select name="order" id="order">
+          <option disabled selected="">Ordenar por</option>
+          <option value="edad">Edad ascendente</option>
+          <option value="edad">Edad descendente</option>
+          <option value="altura">Altura ascendente</option>
+          <option value="altura">Altura descendente</option>
+          <option value="peso">Peso ascendente</option>
+          <option value="peso">Peso descendente</option>
+        </select>
+
+      </div>
+      <div id="root"></div>
+
+      <div class="card"></div>
+      <div class="content"></div>
+    </main>
 
     <script src="main.js" type="module"></script>
   </body>

@@ -5,14 +5,45 @@ import data from './data/athletes/athletes.js';
 const root= document.getElementById('root');
 const allAthletes=data.athletes;
 
+const allTeams= [];
+for (let i=0; i<allAthletes.length; i++){
+    if(!allTeams.includes(allAthletes[i].team)){
+        allTeams.push(allAthletes[i].team)
+    }
+}
+
+const dropDownListTeam= document.getElementById('team');
+for(let i=0; i<allTeams.length; i++){
+    let option= document.createElement('option');
+    option.value= i;
+    option.text= allTeams[i];
+    dropDownListTeam.innerHTML += option.outerHTML;
+}
+
+const allSports= [];
+for (let i=0; i<allAthletes.length; i++){
+    if(!allSports.includes(allAthletes[i].sport)){
+        allSports.push(allAthletes[i].sport)
+    }
+}
+
+const dropDownListSport= document.getElementById('sport');
+for(let i=0; i<allSports.length; i++){
+    let option= document.createElement ('option');
+    option.value= i;
+    option.text= allSports[i];
+    dropDownListSport.innerHTML += option.outerHTML;
+}
 
 for(let i=0; i<allAthletes.length; i++){
+    let target1= document.createElement('div');
+    
     let name= document.createElement('h1');
     name.innerText= 'Nombre: '+data.athletes[i].name;
     root.appendChild(name);
 
     let gender= document.createElement('h1');
-    gender.innerText= 'Género: '+data.athletes[i].gender;
+    gender.innerText= 'Género: '+data.athletes[i].gender; 
     root.appendChild(gender);
 
     let height= document.createElement('h1');
