@@ -2,8 +2,12 @@ import { example } from './data.js';
 
 import data from './data/athletes/athletes.js';
 
-const root= document.getElementById('root');
 const allAthletes=data.athletes;
+
+
+
+const root= document.getElementById('root');
+
 
 
 for(let i=0; i<allAthletes.length; i++){
