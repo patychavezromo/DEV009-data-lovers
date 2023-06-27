@@ -1,0 +1,48 @@
+body{
+    margin: 0;
+}
+
+header{
+    background: #01A750;
+    padding: 1%;
+    text-align: center;
+}
+
+h1{
+    font: urbanis;
+    color: #0B4586;
+}
+
+h2{
+    font: urbanis;
+    color: #006223;
+}
+/* Diseño del flexbox parent*/
+#root {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 5%;
+}
+
+/*Diseño de flexbox para childs*/
+.card{
+    flex: 50%;
+    margin: 10px;
+    border: 5px solid black;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 20%;
+    border-radius: 25px;
+}
+
+.card .content{
+    font-size: 1em;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.drop-down-lists{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
