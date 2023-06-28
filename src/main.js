@@ -34,7 +34,9 @@ for(let i=0; i<allSports.length; i++){
     dropDownListSport.innerHTML += option.outerHTML;
 }
 
+
 const root= document.getElementById('root');
+
 
 for(let i=0; i<allAthletes.length; i++){
     let card= document.createElement('div');
