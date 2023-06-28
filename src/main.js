@@ -38,50 +38,57 @@ for(let i=0; i<allSports.length; i++){
 const root= document.getElementById('root');
 
 
-
 for(let i=0; i<allAthletes.length; i++){
-    let target1= document.createElement('div');
+    let card= document.createElement('div');
+    card.className= 'card';
+    let content= document.createElement('div');
+    content.className= 'content';
     
-    let name= document.createElement('h1');
+    let name= document.createElement('p');
     name.innerText= 'Nombre: '+data.athletes[i].name;
-    root.appendChild(name);
+    content.appendChild(name);
 
-    let gender= document.createElement('h1');
+    let gender= document.createElement('p');
     gender.innerText= 'Género: '+data.athletes[i].gender; 
-    root.appendChild(gender);
+    content.appendChild(gender);
 
-    let height= document.createElement('h1');
+    let height= document.createElement('p');
     height.innerText= 'Altura: '+data.athletes[i].height;
-    root.appendChild(height);
+    content.appendChild(height);
 
-    let weight= document.createElement('h1');
+    let weight= document.createElement('p');
     weight.innerText= 'Peso: '+data.athletes[i].weight;
-    root.appendChild(weight);
+    content.appendChild(weight);
 
-    let sport= document.createElement('h1');
+    let sport= document.createElement('p');
     sport.innerText= 'Deporte: '+data.athletes[i].sport;
-    root.appendChild(sport);
+    content.appendChild(sport);
 
-    let team= document.createElement('h1');
+    let team= document.createElement('p');
     team.innerText= 'Equipo: '+data.athletes[i].team;
-    root.appendChild(team);
+    content.appendChild(team);
 
-    let noc= document.createElement('h1');
+    let noc= document.createElement('p');
     noc.innerText= 'País: '+data.athletes[i].noc;
-    root.appendChild(noc);
+    content.appendChild(noc);
 
-    let age= document.createElement('h1');
+    let age= document.createElement('p');
     age.innerText= 'Edad: '+data.athletes[i].age;
-    root.appendChild(age);
+    content.appendChild(age);
 
-    let event= document.createElement('h1');
+    let event= document.createElement('p');
     event.innerText= 'Disciplina: '+data.athletes[i].event;
-    root.appendChild(event);
+    content.appendChild(event);
 
-    let medal= document.createElement('h1');
+    let medal= document.createElement('p');
     medal.innerText= 'Medalla: '+data.athletes[i].medal;
-    root.appendChild(medal);
+    content.appendChild(medal);
+
+    card.appendChild(content);
+    root.appendChild(card);
+
 }
+
 
 
 
