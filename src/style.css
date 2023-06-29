@@ -4,18 +4,30 @@ body{
 
 header{
     background: #01A750;
-    padding: 1%;
-    text-align: center;
+    height: 250px;
+    display: flex;
+}
+
+.logo img{
+    height: 100%;
 }
 
 h1{
-    font: urbanis;
+    font-family: "Phosphate";
+    font-size: 280%;
     color: #0B4586;
+    position: absolute;
+    left: 45%;
+    top: 5%;
 }
 
 h2{
-    font: urbanis;
+    font-family: "Phosphate";
+    font-size: 280%;
     color: #006223;
+    position: absolute;
+    left: 39%;
+    top: 10%
 }
 /* Diseño del flexbox parent*/
 #root {
@@ -28,21 +40,68 @@ h2{
 .card{
     flex: 50%;
     margin: 10px;
-    border: 5px solid black;
+    border: 5px solid #FB9A00;
+    background-color: #FB9A00;
+    box-shadow: 10px 5px 5px grey;
     display: flex;
     flex-direction: column;
-    flex-basis: 20%;
+    flex-basis: 18%;
     border-radius: 25px;
+    padding: 2%;
+    box-shadow: 18px 18px 4px rgba(0, 0, 0, 0.4);
 }
 
 .card .content{
     font-size: 1em;
     flex-grow: 1;
     flex-shrink: 1;
+    text-align: center;
+    background-image: url(./9E1B7670-2AD2-4E25-9AD2-333922481F4D.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 1.5%;
+    box-shadow: 18px 2px 4px rgba(0, 0, 0, 0.4);
+    border-radius: 25px;
 }
 
 .drop-down-lists{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+@media screen and (min-width: 320px) and (max-width: 480px){
+    header{
+        height: 200px;
+        justify-content: space-between;
+    }
+    .logo img{
+        height: 80%;
+    }
+    h1{
+        font-family: "Futura";
+        font-size: 200%;
+        position: absolute;
+        left: 45%;
+        top: 2%;
+    }
+    h2{
+        font-family: "Futura";
+        font-size: 200%;
+        position: absolute;
+        left: 45%;
+        top: 9%;
+    }
+    #root {
+        margin: auto;
+    }
+    .card{
+        flex-basis: 80%;
+    }
+    .drop-down-lists{
+        display: grid;
+        gap: 5%;
+        margin-bottom: 3%;
+
+    }
 }
