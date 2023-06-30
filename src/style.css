@@ -8,12 +8,12 @@ header{
     display: flex;
 }
 
-.logo img{
+.logo img {
     height: 100%;
 }
 
 h1{
-    font-family: "Phosphate";
+    font-family: 'Cinzel Decorative', cursive;;
     font-size: 280%;
     color: #0B4586;
     position: absolute;
@@ -75,7 +75,7 @@ h2{
         height: 200px;
         justify-content: space-between;
     }
-    .logo img{
+    .logo{
         height: 80%;
     }
     h1{
