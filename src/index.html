@@ -24,16 +24,19 @@
 
         <select name="gender" id="gender">
           <option disabled selected="">Selecciona género</option>
+          <option value="mostrarTodo">Mostrar todo</option>
           <option value="femenino">Femenino</option>
           <option value="masculino">Masculino</option>
         </select>
 
         <select name="team" id="team">
           <option disabled selected="">Selecciona país</option>
+          <option value="mostrarTodo">Mostrar todo</option>
         </select>
 
         <select name="sport" id="sport">
           <option disabled selected="">Selecciona deporte</option>
+          <option value="mostrarTodo">Mostrar todo</option>
         </select>
 
         <select name="order" id="order">
@@ -45,9 +48,11 @@
           <option value="peso">Peso ascendente</option>
           <option value="peso">Peso descendente</option>
         </select>
+        
+        <input type="search" placeholder="Buscar atletas..." class="card-search">
 
       </div>
-      
+
       <div id="root"></div>
       
     </main>

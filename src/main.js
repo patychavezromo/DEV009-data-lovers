@@ -1,5 +1,4 @@
-import { example } from './data.js';
-
+import dataFunctions from './data.js';
 import data from './data/athletes/athletes.js';
 
 const allAthletes=data.athletes;
@@ -14,7 +13,7 @@ for (let i=0; i<allAthletes.length; i++){
 const dropDownListTeam= document.getElementById('team');
 for(let i=0; i<allTeams.length; i++){
     let option= document.createElement('option');
-    option.value= i;
+    option.value= allTeams[i];
     option.text= allTeams[i];
     dropDownListTeam.innerHTML += option.outerHTML;
 }
@@ -29,67 +28,67 @@ for (let i=0; i<allAthletes.length; i++){
 const dropDownListSport= document.getElementById('sport');
 for(let i=0; i<allSports.length; i++){
     let option= document.createElement ('option');
-    option.value= i;
+    option.value= allSports[i];
     option.text= allSports[i];
     dropDownListSport.innerHTML += option.outerHTML;
 }
 
+const root = document.getElementById('root');
+dataFunctions.showAllCards(allAthletes);
 
-const root= document.getElementById('root');
+const selectedGender = document.getElementById('gender');
 
+selectedGender.addEventListener('change', ()  => {
+    const selectedOption = selectedGender.value;
+    console.log(selectedOption);
 
-for(let i=0; i<allAthletes.length; i++){
-    let card= document.createElement('div');
-    card.className= 'card';
-    let content= document.createElement('div');
-    content.className= 'content';
-    
-    let name= document.createElement('p');
-    name.innerText= 'Nombre: '+data.athletes[i].name;
-    content.appendChild(name);
+    switch (selectedOption){
+        case 'femenino':
+            const femaleList = dataFunctions.femaleFilter(allAthletes);
+            root.innerHTML= "";
+            dataFunctions.showAllCards(femaleList);
+            break;
 
-    let gender= document.createElement('p');
-    gender.innerText= 'Género: '+data.athletes[i].gender; 
-    content.appendChild(gender);
+        case 'masculino':
+            const maleList = dataFunctions.maleFilter(allAthletes);
+            root.innerHTML= "";
+            dataFunctions.showAllCards(maleList);
+            break;
+        case 'mostrarTodo':
+            root.innerHTML= "";
+            dataFunctions.showAllCards(allAthletes);
+            break;
+    }
+} );
 
-    let height= document.createElement('p');
-    height.innerText= 'Altura: '+data.athletes[i].height;
-    content.appendChild(height);
+const selectedTeam = document.getElementById('team');
 
-    let weight= document.createElement('p');
-    weight.innerText= 'Peso: '+data.athletes[i].weight;
-    content.appendChild(weight);
+selectedTeam.addEventListener('change', () => {
+    const selectedOption = selectedTeam.value;
+    console.log(selectedOption);
 
-    let sport= document.createElement('p');
-    sport.innerText= 'Deporte: '+data.athletes[i].sport;
-    content.appendChild(sport);
+    if (selectedTeam.value === "mostrarTodo"){
+        root.innerHTML= "";
+        dataFunctions.showAllCards(allAthletes);
+    } else {
+        const teamList = dataFunctions.teamFilter(allAthletes, selectedOption);
+        root.innerHTML= "";
+        dataFunctions.showAllCards(teamList);
+    }
+});
 
-    let team= document.createElement('p');
-    team.innerText= 'Equipo: '+data.athletes[i].team;
-    content.appendChild(team);
+const selectedSport = document.getElementById('sport');
 
-    let noc= document.createElement('p');
-    noc.innerText= 'País: '+data.athletes[i].noc;
-    content.appendChild(noc);
+selectedSport.addEventListener('change', () => {
+    const selectedOption = selectedSport.value;
+    console.log(selectedOption);
 
-    let age= document.createElement('p');
-    age.innerText= 'Edad: '+data.athletes[i].age;
-    content.appendChild(age);
-
-    let event= document.createElement('p');
-    event.innerText= 'Disciplina: '+data.athletes[i].event;
-    content.appendChild(event);
-
-    let medal= document.createElement('p');
-    medal.innerText= 'Medalla: '+data.athletes[i].medal;
-    content.appendChild(medal);
-
-    card.appendChild(content);
-    root.appendChild(card);
-
-}
-
-
-
-
-
+    if (selectedSport.value === "mostrarTodo"){
+        root.innerHTML= "";
+        dataFunctions.showAllCards(allAthletes);
+    } else {
+    const sportList = dataFunctions.sportFilter(allAthletes, selectedOption);
+    root.innerHTML= "";
+    dataFunctions.showAllCards(sportList);
+    }
+});
