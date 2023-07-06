@@ -92,3 +92,57 @@ selectedSport.addEventListener('change', () => {
     dataFunctions.showAllCards(sportList);
     }
 });
+
+const selectedOrder = document.getElementById('order');
+
+selectedOrder.addEventListener('change', () => {
+    const selectedOption = selectedOrder.value;
+    console.log(selectedOption);
+    
+    switch (selectedOption){
+        case 'edad-ascendente':
+            const ageAscendant = dataFunctions.orderAgeAscendant(allAthletes);
+            root.innerHTML= "";
+            dataFunctions.showAllCards(ageAscendant);
+            break;
+        case 'edad-descendente':
+            const ageDescendant = dataFunctions.orderAgeDescendant(allAthletes);
+            root.innerHTML= "";
+            dataFunctions.showAllCards(ageDescendant);
+            break;
+        case 'altura-ascendente':
+            const heightAscendant = dataFunctions.orderHeightAscendant(allAthletes);
+            root.innerHTML= "";
+            dataFunctions.showAllCards(heightAscendant);
+            break;
+        case 'altura-descendente':
+            const heightDescendant = dataFunctions.orderHeightDescendant(allAthletes);
+            root.innerHTML= "";
+            dataFunctions.showAllCards(heightDescendant);
+            break;
+        case 'peso-ascendente':
+            const weightAscendant = dataFunctions.orderWeightAscendant(allAthletes);
+            root.innerHTML= "";
+            dataFunctions.showAllCards(weightAscendant);
+            break;
+        case 'peso-descendente':
+            const weightDescendant = dataFunctions.orderWeightDescendant(allAthletes);
+            root.innerHTML= "";
+            dataFunctions.showAllCards(weightDescendant);
+            break;   
+    }
+    // if (selectedOrder.value === "mostrarTodo"){
+    //     root.innerHTML= "";
+    //     dataFunctions.showAllCards(allAthletes);
+    // } 
+    // if (selectedOrder.value === "edad-ascendente"){
+    //     const ageAscendant = dataFunctions.orderAgeAscendant(allAthletes);
+    //     root.innerHTML= "";
+    //     dataFunctions.showAllCards(ageAscendant);
+    // } 
+    // if (selectedOrder.value === "edad-descendente"){
+    //     const ageDescendant = dataFunctions.orderAgeDescendant(allAthletes);
+    //     root.innerHTML= "";
+    //     dataFunctions.showAllCards(ageDescendant);
+    // }
+});

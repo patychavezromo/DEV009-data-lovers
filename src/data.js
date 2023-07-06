@@ -21,6 +21,69 @@ const dataFunctions= {
     return sports;
   },
 
+  orderAgeAscendant: (athletesList) => {
+    athletesList.sort ((a,b) => {
+      if (a.age == b.age){
+        return 0;
+      } if (a.age < b.age){
+        return -1;
+      } 
+      return 1
+    } ); 
+  return athletesList;
+  },
+  orderAgeDescendant: (athletesList) => {
+    athletesList.sort ((a,b) => {
+      if (a.age == b.age){
+        return 0;
+      } if (a.age > b.age){
+        return -1;
+      } 
+      return 1
+    } ); 
+  return athletesList;
+  },
+
+  orderHeightAscendant: (athletesList) => {
+    athletesList.sort ((a,b) => {
+      if (a.height == b.height){
+        return 0;
+      } if (a.height < b.height){
+        return -1;
+      } 
+      return 1
+    } ); 
+  return athletesList;
+  },
+
+  orderHeightDescendant: (athletesList) => {
+    athletesList.sort ((a,b) => {
+      if (a.height == b.height){
+        return 0;
+      } if (a.height > b.height){
+        return -1;
+      } 
+      return 1
+    } ); 
+  return athletesList;
+  },
+
+  orderWeightAscendant: (athletesList) => {
+    athletesList.sort ((a,b) => {
+      return a.weight - b.weight;
+    } ); 
+  return athletesList;
+  },
+
+  orderWeightDescendant: (athletesList) => {
+    athletesList.sort ((a,b) => {
+      return b.weight - a.weight;
+    } ); 
+  return athletesList;
+  },
+
+
+
   showAllCards: (athletesList)=>{
     const root = document.getElementById('root');
  
@@ -31,6 +94,7 @@ const dataFunctions= {
       content.className= 'content';
 
       let name= document.createElement('p');
+      name.className = 'parrafoNombre';
       name.innerText= 'Nombre: '+athletesList[i].name;
       content.appendChild(name);
 
