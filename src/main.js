@@ -3,13 +3,7 @@ import data from './data/athletes/athletes.js';
 
 const allAthletes=data.athletes;
 
-const allTeams= [];
-for (let i=0; i<allAthletes.length; i++){
-    if(!allTeams.includes(allAthletes[i].team)){
-        allTeams.push(allAthletes[i].team)
-    }
-}
-
+const allTeams= dataFunctions.showAllTeams(allAthletes);
 const dropDownListTeam= document.getElementById('team');
 for(let i=0; i<allTeams.length; i++){
     let option= document.createElement('option');
@@ -18,13 +12,8 @@ for(let i=0; i<allTeams.length; i++){
     dropDownListTeam.innerHTML += option.outerHTML;
 }
 
-const allSports= [];
-for (let i=0; i<allAthletes.length; i++){
-    if(!allSports.includes(allAthletes[i].sport)){
-        allSports.push(allAthletes[i].sport)
-    }
-}
 
+const allSports=dataFunctions.showAllSports(allAthletes);
 const dropDownListSport= document.getElementById('sport');
 for(let i=0; i<allSports.length; i++){
     let option= document.createElement ('option');
@@ -33,8 +22,64 @@ for(let i=0; i<allSports.length; i++){
     dropDownListSport.innerHTML += option.outerHTML;
 }
 
+function showAllCards (athletesList){
+    const root = document.getElementById('root');
+ 
+    for(let i=0; i<athletesList.length; i++){
+      let card= document.createElement('div');
+      card.className= 'card';
+      let content= document.createElement('div');
+      content.className= 'content';
+
+      let name= document.createElement('p');
+      name.className = 'parrafoNombre';
+      name.innerText= 'Nombre: '+athletesList[i].name;
+      content.appendChild(name);
+
+      let gender= document.createElement('p');
+      gender.innerText= 'Género: '+athletesList[i].gender; 
+      content.appendChild(gender);
+
+      let height= document.createElement('p');
+      height.innerText= 'Altura: '+athletesList[i].height;
+      content.appendChild(height);
+
+      let weight= document.createElement('p');
+      weight.innerText= 'Peso: '+athletesList[i].weight;
+      content.appendChild(weight);
+
+      let sport= document.createElement('p');
+      sport.innerText= 'Deporte: '+athletesList[i].sport;
+      content.appendChild(sport);
+
+      let team= document.createElement('p');
+      team.innerText= 'Equipo: '+athletesList[i].team;
+      content.appendChild(team);
+
+      let noc= document.createElement('p');
+      noc.innerText= 'País: '+athletesList[i].noc;
+      content.appendChild(noc);
+
+      let age= document.createElement('p');
+      age.innerText= 'Edad: '+athletesList[i].age;
+      content.appendChild(age);
+
+      let event= document.createElement('p');
+      event.innerText= 'Disciplina: '+athletesList[i].event;
+      content.appendChild(event);
+
+      let medal= document.createElement('p');
+      medal.innerText= 'Medalla: '+athletesList[i].medal;
+      content.appendChild(medal);
+
+      card.appendChild(content);
+      root.appendChild(card);
+
+    }
+  };
+
 const root = document.getElementById('root');
-dataFunctions.showAllCards(allAthletes);
+showAllCards(allAthletes);
 
 const selectedGender = document.getElementById('gender');
 
@@ -43,20 +88,20 @@ selectedGender.addEventListener('change', ()  => {
     console.log(selectedOption);
 
     switch (selectedOption){
-        case 'femenino':
+        case 'femenino':       
             const femaleList = dataFunctions.femaleFilter(allAthletes);
             root.innerHTML= "";
-            dataFunctions.showAllCards(femaleList);
+            showAllCards(femaleList);
             break;
 
         case 'masculino':
             const maleList = dataFunctions.maleFilter(allAthletes);
             root.innerHTML= "";
-            dataFunctions.showAllCards(maleList);
+            showAllCards(maleList);
             break;
         case 'mostrarTodo':
             root.innerHTML= "";
-            dataFunctions.showAllCards(allAthletes);
+            showAllCards(allAthletes);
             break;
     }
 } );
@@ -69,11 +114,11 @@ selectedTeam.addEventListener('change', () => {
 
     if (selectedTeam.value === "mostrarTodo"){
         root.innerHTML= "";
-        dataFunctions.showAllCards(allAthletes);
+        showAllCards(allAthletes);
     } else {
         const teamList = dataFunctions.teamFilter(allAthletes, selectedOption);
         root.innerHTML= "";
-        dataFunctions.showAllCards(teamList);
+        showAllCards(teamList);
     }
 });
 
@@ -85,11 +130,11 @@ selectedSport.addEventListener('change', () => {
 
     if (selectedSport.value === "mostrarTodo"){
         root.innerHTML= "";
-        dataFunctions.showAllCards(allAthletes);
+        showAllCards(allAthletes);
     } else {
     const sportList = dataFunctions.sportFilter(allAthletes, selectedOption);
     root.innerHTML= "";
-    dataFunctions.showAllCards(sportList);
+    showAllCards(sportList);
     }
 });
 
@@ -103,46 +148,33 @@ selectedOrder.addEventListener('change', () => {
         case 'edad-ascendente':
             const ageAscendant = dataFunctions.orderAgeAscendant(allAthletes);
             root.innerHTML= "";
-            dataFunctions.showAllCards(ageAscendant);
+            showAllCards(ageAscendant);
             break;
         case 'edad-descendente':
             const ageDescendant = dataFunctions.orderAgeDescendant(allAthletes);
             root.innerHTML= "";
-            dataFunctions.showAllCards(ageDescendant);
+            showAllCards(ageDescendant);
             break;
         case 'altura-ascendente':
             const heightAscendant = dataFunctions.orderHeightAscendant(allAthletes);
             root.innerHTML= "";
-            dataFunctions.showAllCards(heightAscendant);
+            showAllCards(heightAscendant);
             break;
         case 'altura-descendente':
             const heightDescendant = dataFunctions.orderHeightDescendant(allAthletes);
             root.innerHTML= "";
-            dataFunctions.showAllCards(heightDescendant);
+            showAllCards(heightDescendant);
             break;
         case 'peso-ascendente':
             const weightAscendant = dataFunctions.orderWeightAscendant(allAthletes);
             root.innerHTML= "";
-            dataFunctions.showAllCards(weightAscendant);
+            showAllCards(weightAscendant);
             break;
         case 'peso-descendente':
             const weightDescendant = dataFunctions.orderWeightDescendant(allAthletes);
             root.innerHTML= "";
-            dataFunctions.showAllCards(weightDescendant);
+            showAllCards(weightDescendant);
             break;   
     }
-    // if (selectedOrder.value === "mostrarTodo"){
-    //     root.innerHTML= "";
-    //     dataFunctions.showAllCards(allAthletes);
-    // } 
-    // if (selectedOrder.value === "edad-ascendente"){
-    //     const ageAscendant = dataFunctions.orderAgeAscendant(allAthletes);
-    //     root.innerHTML= "";
-    //     dataFunctions.showAllCards(ageAscendant);
-    // } 
-    // if (selectedOrder.value === "edad-descendente"){
-    //     const ageDescendant = dataFunctions.orderAgeDescendant(allAthletes);
-    //     root.innerHTML= "";
-    //     dataFunctions.showAllCards(ageDescendant);
-    // }
+  
 });
