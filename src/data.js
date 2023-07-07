@@ -2,70 +2,70 @@ const dataFunctions= {
 
 
   femaleFilter: (list) =>{
-    const femaleAthletes = list.filter(element => element.gender == "F");
+    const femaleAthletes = list.filter(element => element.gender === "F");
     return femaleAthletes;
   },
 
   maleFilter: (list) =>{
-    const maleAthletes = list.filter(element => element.gender == "M");
+    const maleAthletes = list.filter(element => element.gender === "M");
     return maleAthletes;
   },
 
   teamFilter: (list, selectedOption) =>{
-    const teams = list.filter(element => element.team == selectedOption);
+    const teams = list.filter(element => element.team === selectedOption);
     return teams;
   },
   
   sportFilter: (list, selectedOption) =>{
-    const sports = list.filter(element => element.sport == selectedOption);
+    const sports = list.filter(element => element.sport === selectedOption);
     return sports;
   },
 
   orderAgeAscendant: (athletesList) => {
     athletesList.sort ((a,b) => {
-      if (a.age == b.age){
+      if (a.age === b.age){
         return 0;
       } if (a.age < b.age){
         return -1;
       } 
       return 1
     } ); 
-  return athletesList;
+    return athletesList;
   },
   orderAgeDescendant: (athletesList) => {
     athletesList.sort ((a,b) => {
-      if (a.age == b.age){
+      if (a.age === b.age){
         return 0;
       } if (a.age > b.age){
         return -1;
       } 
       return 1
     } ); 
-  return athletesList;
+    return athletesList;
   },
 
   orderHeightAscendant: (athletesList) => {
     athletesList.sort ((a,b) => {
-      if (a.height == b.height){
+      if (a.height === b.height){
         return 0;
       } if (a.height < b.height){
         return -1;
       } 
       return 1
     } ); 
-  return athletesList;
+    return athletesList;
   },
 
   orderHeightDescendant: (athletesList) => {
     athletesList.sort ((a,b) => {
-      if (a.height == b.height){
+      if (a.height === b.height){
         return 0;
       } if (a.height > b.height){
         return -1;
       } 
       return 1
     } ); 
-  return athletesList;
+    return athletesList;
   },
 
   orderWeightAscendant: (athletesList) => {
@@ -89,7 +89,7 @@ const dataFunctions= {
     for(let i=0; i<notWeight.length; i++){
       weightList.push(notWeight[i]);
     }
-  return weightList;
+    return weightList;
   },
 
   orderWeightDescendant: (athletesList) => {
