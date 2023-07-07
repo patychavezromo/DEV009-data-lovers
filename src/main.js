@@ -1,4 +1,5 @@
 import dataFunctions from './data.js';
+import athletes from './data/athletes/athletes.js';
 import data from './data/athletes/athletes.js';
 
 const allAthletes=data.athletes;
@@ -176,5 +177,15 @@ selectedOrder.addEventListener('change', () => {
             showAllCards(weightDescendant);
             break;   
     }
-  
+});
+
+const searchBar= document.getElementById('searchBar');
+
+searchBar.addEventListener('keyup',(e) =>{
+    const text = e.target.value.toLowerCase();
+    const filteredAthletes = allAthletes.filter(athlete =>{
+       return athlete.name.toLowerCase().includes(text);
+    })
+root.innerHTML="";
+showAllCards(filteredAthletes);
 });
