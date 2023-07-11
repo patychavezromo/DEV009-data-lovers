@@ -194,3 +194,4 @@ searchBar.addEventListener('keyup',(e) =>{
   root.innerHTML="";
   showAllCards(filteredAthletes);
 });
+

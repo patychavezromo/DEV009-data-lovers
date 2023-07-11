@@ -1,3 +1,5 @@
+
+
 const dataFunctions= {
 
 
@@ -138,6 +140,55 @@ const dataFunctions= {
   },
 
 
+  athletesByTeam: (allAthletes)=>{
+    const valorInicial={};
+    allAthletes.reduce(
+      (atletasPorPais, atletas)=>{
+        if(!atletasPorPais[atletas.team]){
+          atletasPorPais[atletas.team]=[atletas];
+        }else{
+          atletasPorPais[atletas.team].push(atletas);
+        }
+        return atletasPorPais;
+      }
+      ,valorInicial);
+
+  },
+
+
+  totalMedals: (listAthletesByTeam)=>{
+    const totalDeMedallasPorPais={};
+    for(const team in listAthletesByTeam){
+      const medallasDelPaisActual=listAthletesByTeam[team].reduce(
+        (medallasDelPaisActual,atleta)=>{
+          if(atleta.medal==='Gold'){
+            medallasDelPaisActual.oro ++;
+          }
+          if(atleta.medal==='Silver'){
+            medallasDelPaisActual.plata ++;
+          }
+          if(atleta.medal==='Bronze'){
+            medallasDelPaisActual.bronce ++;
+          }
+          medallasDelPaisActual.total=
+                medallasDelPaisActual.oro+
+                medallasDelPaisActual.plata+
+                medallasDelPaisActual.bronce;
+                
+          return medallasDelPaisActual;
+        },
+        {
+          oro:0,
+          plata:0,
+          bronce:0,
+          total:0
+        }
+      );
+      return totalDeMedallasPorPais[team]=medallasDelPaisActual;
+    }
+  },
+
+  
 };
 
 
