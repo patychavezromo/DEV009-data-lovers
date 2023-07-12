@@ -34,6 +34,7 @@ const dataFunctions= {
     } ); 
     return athletesList;
   },
+
   orderAgeDescendant: (athletesList) => {
     athletesList.sort ((a,b) => {
       if (a.age === b.age){
@@ -47,7 +48,20 @@ const dataFunctions= {
   },
 
   orderHeightAscendant: (athletesList) => {
-    athletesList.sort ((a,b) => {
+    const heightList=[];
+    const notHeight=[];
+
+    for(let i=0; i<athletesList.length; i++){
+      const currentHeight=athletesList[i].height;
+      if(currentHeight !=='NA'){
+        heightList.push(athletesList[i]);
+      }
+      if(currentHeight === 'NA'){
+        notHeight.push(athletesList[i]);
+      }
+    }
+
+    heightList.sort ((a,b) => {
       if (a.height === b.height){
         return 0;
       } if (a.height < b.height){
@@ -55,11 +69,28 @@ const dataFunctions= {
       } 
       return 1
     } ); 
-    return athletesList;
+
+    for(let i=0; i<notHeight.length; i++){
+      heightList.push(notHeight[i]);
+    }
+    return heightList;
   },
 
   orderHeightDescendant: (athletesList) => {
-    athletesList.sort ((a,b) => {
+    const heightList=[];
+    const notHeight=[];
+
+    for(let i=0; i<athletesList.length; i++){
+      const currentHeight=athletesList[i].height;
+      if(currentHeight !=='NA'){
+        heightList.push(athletesList[i]);
+      }
+      if(currentHeight === 'NA'){
+        notHeight.push(athletesList[i]);
+      }
+    }
+
+    heightList.sort ((a,b) => {
       if (a.height === b.height){
         return 0;
       } if (a.height > b.height){
@@ -67,7 +98,12 @@ const dataFunctions= {
       } 
       return 1
     } ); 
-    return athletesList;
+    
+
+    for(let i=0; i<notHeight.length; i++){
+      heightList.push(notHeight[i]);
+    }
+    return heightList;
   },
 
   orderWeightAscendant: (athletesList) => {

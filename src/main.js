@@ -143,45 +143,51 @@ const selectedOrder = document.getElementById('order');
 selectedOrder.addEventListener('change', () => {
   const selectedOption = selectedOrder.value;
   const deleteAll = root.innerHTML= "";
-  const ageAscendant = dataFunctions.orderAgeAscendant(allAthletes);
-  const ageDescendant = dataFunctions.orderAgeDescendant(allAthletes);
-  const heightAscendant = dataFunctions.orderHeightAscendant(allAthletes);
-  const heightDescendant = dataFunctions.orderHeightDescendant(allAthletes);
-  const weightAscendant = dataFunctions.orderWeightAscendant(allAthletes);
-  const weightDescendant = dataFunctions.orderWeightDescendant(allAthletes);
+  let ageAscendant=[];
+  let ageDescendant=[];
+  let heightAscendant=[];
+  let heightDescendant = [];
+  let weightAscendant = [];
+  let weightDescendant = [];
 
   switch (selectedOption){
   case 'edad-ascendente':
-    ageAscendant;
+    ageAscendant=dataFunctions.orderAgeAscendant(allAthletes);
     deleteAll;
     showAllCards(ageAscendant);
     break;
+
   case 'edad-descendente':
-    ageDescendant;
+    ageDescendant=dataFunctions.orderAgeDescendant(allAthletes);
     deleteAll;
     showAllCards(ageDescendant);
     break;
+
   case 'altura-ascendente':
-    heightAscendant;
+    heightAscendant=dataFunctions.orderHeightAscendant(allAthletes);
     deleteAll;
     showAllCards(heightAscendant);
     break;
+
   case 'altura-descendente':
-    heightDescendant;
+    heightDescendant=dataFunctions.orderHeightDescendant(allAthletes);
     deleteAll;
     showAllCards(heightDescendant);
     break;
+
   case 'peso-ascendente':
-    weightAscendant;
+    weightAscendant=dataFunctions.orderWeightAscendant(allAthletes);
     deleteAll;
     showAllCards(weightAscendant);
     break;
+
   case 'peso-descendente':
-    weightDescendant;
+    weightDescendant=dataFunctions.orderWeightDescendant(allAthletes);
     deleteAll;
     showAllCards(weightDescendant);
     break;   
   }
+
 });
 
 const searchBar= document.getElementById('searchBar');
