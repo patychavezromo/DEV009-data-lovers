@@ -1,40 +1,234 @@
 import dataFunctions from '../src/data.js';
 
-const dataTestGender = [{"gender": "M"},{ "gender": "F",}]
- 
-const dataTestTeam = [{"team": "United States"}, {"team": "Italy"},{"team": "Canada"}]
+const dataTestGender = [
+  {
+    "name": "Giovanni Abagnale",
+    "gender": "M",
+    "height": "198",
+    "weight": "90",
+    "sport": "Rowing",
+    "team": "Italy",
+    "noc": "ITA",
+    "age": 21,
+    "event": "Rowing Men's Coxless Pairs",
+    "medal": "Bronze"
+  },
+  {
+    "name": "Patimat Abakarova",
+    "gender": "F",
+    "height": "165",
+    "weight": "49",
+    "sport": "Taekwondo",
+    "team": "Azerbaijan",
+    "noc": "AZE",
+    "age": 21,
+    "event": "Taekwondo Women's Flyweight",
+    "medal": "Bronze"
+  },
+  {
+    "name": "Luc Abalo",
+    "gender": "M",
+    "height": "182",
+    "weight": "86",
+    "sport": "Handball",
+    "team": "France",
+    "noc": "FRA",
+    "age": 31,
+    "event": "Handball Men's Handball",
+    "medal": "Silver"
+  },
+  {
+    "name": "Saeid Morad Abdevali",
+    "gender": "M",
+    "height": "170",
+    "weight": "80",
+    "sport": "Wrestling",
+    "team": "Iran",
+    "noc": "IRI",
+    "age": 26,
+    "event": "Wrestling Men's Middleweight, Greco-Roman",
+    "medal": "Bronze"
+  },
+  {
+    "name": "Denis Mikhaylovich Ablyazin",
+    "gender": "M",
+    "height": "161",
+    "weight": "62",
+    "sport": "Gymnastics",
+    "team": "Russia",
+    "noc": "RUS",
+    "age": 24,
+    "event": "Gymnastics Men's Team All-Around",
+    "medal": "Silver"
+  }
+]
 
-const dataTestSport = [{"sport": "Rowing"},{"sport": "Taekwondo"}, {"sport": "Handball"}, {"sport": "Wrestling"}, {"sport": "Gymnastics"}, {"sport": "Swimming"}]
+const dataTestComputeStats= [
+  {
+    "team": "Italy",
+    "medal": "Bronze"
+  },
+  {
+    "team": "Italy",
+    "medal": "Bronze"
+  },
+  {
+    "team": "France",
+    "medal": "Silver"
+  },
+  {
+    "team": "Italy",
+    "medal": "Bronze"
+  },
+  {
+    "team": "Russia",
+    "medal": "Silver"
+  },
+  {
+    "team": "Russia",
+    "medal": "Silver"
+  },
+  {
+    "team": "Russia",
+    "medal": "Bronze"
+  },
+  {
+    "team": "Australia",
+    "medal": "Bronze"
+  },
+  {
+    "team": "Italy",
+    "medal": "Bronze"
+  },
+  {
+    "team": "Jordan",
+    "medal": "Gold"
+  }
+]
 
-const dataTestOrderAge = [{"age": 36},{"age": 25},{"age": 18},{"age": 32},{"age": 28},{"age": 24}]
-
-const dataTestOrderHeight = [{"height": 187},{"height": 165},{"height": 192},{"height": 180},{"height": 179},{"height": 147}]
-
-const dataTestOrderWeight = [{"weight": 50},{"weight": 100},{"weight": 45},{"weight": 49},{"weight": 38},{"weight": 70}]
-
-const dataTestDropDownListTeam = [{"team": 'Italy'},{"team": 'France'},{"team": 'Iran'},{"team": 'Italy'},{"team": 'France'},{"team": 'Italy'},{"team": 'Iran'}]
-
-const dataTestDropDownListSports = [{"sport": 'Taekwondo'},{"sport": 'Handball'},{"sport": 'Taekwondo'},{"sport": 'Gymnastics'},{"sport": 'Taekwondo'},{"sport": 'Gymnastics'},{"sport": 'Handball'}]
+const dataTestFilteredMedals = 
+{Italy: [{
+  "team": "Italy",
+  "medal": "Bronze"
+},
+{
+  "team": "Italy",
+  "medal": "Bronze"
+}, 
+{
+  "team": "Italy",
+  "medal": "Bronze"
+},
+{
+  "team": "Italy",
+  "medal": "Bronze"
+}
+],
+France: [
+  {
+    "team": "France",
+    "medal": "Silver"
+  }
+],
+Russia: [{
+  "team": "Russia",
+  "medal": "Silver"
+},
+{
+  "team": "Russia",
+  "medal": "Silver"
+},
+{
+  "team": "Russia",
+  "medal": "Bronze"
+}
+],
+Australia: [{
+  "team": "Australia",
+  "medal": "Bronze"
+}
+],
+Jordan: [{
+  "team": "Jordan",
+  "medal": "Gold"
+}
+],
+}
 
 describe ("dataFunctions",() =>{
+
+  
   //test para filtro de atletas femeninas
   describe("dataFunctions.femaleFilter", () => {
     it('Debería retornar sólo atletas mujeres para "' + dataTestGender + '"', () => {
       expect(dataFunctions.femaleFilter(dataTestGender, "F")).toEqual([
         {
+          "name": "Patimat Abakarova",
           "gender": "F",
+          "height": "165",
+          "weight": "49",
+          "sport": "Taekwondo",
+          "team": "Azerbaijan",
+          "noc": "AZE",
+          "age": 21,
+          "event": "Taekwondo Women's Flyweight",
+          "medal": "Bronze"
         }
       ]);
     });
   });
-
 
   //test para filtro de atletas masculinos
   describe("dataFunctions.maleFilter", () => {
     it('Debería retornar sólo atletas hombres para "' + dataTestGender + '"', () => {
       expect(dataFunctions.maleFilter(dataTestGender, "M")).toEqual([
         {
+          "name": "Giovanni Abagnale",
           "gender": "M",
+          "height": "198",
+          "weight": "90",
+          "sport": "Rowing",
+          "team": "Italy",
+          "noc": "ITA",
+          "age": 21,
+          "event": "Rowing Men's Coxless Pairs",
+          "medal": "Bronze"
+        },
+        {
+          "name": "Luc Abalo",
+          "gender": "M",
+          "height": "182",
+          "weight": "86",
+          "sport": "Handball",
+          "team": "France",
+          "noc": "FRA",
+          "age": 31,
+          "event": "Handball Men's Handball",
+          "medal": "Silver"
+        },
+        {
+          "name": "Saeid Morad Abdevali",
+          "gender": "M",
+          "height": "170",
+          "weight": "80",
+          "sport": "Wrestling",
+          "team": "Iran",
+          "noc": "IRI",
+          "age": 26,
+          "event": "Wrestling Men's Middleweight, Greco-Roman",
+          "medal": "Bronze"
+        },
+        {
+          "name": "Denis Mikhaylovich Ablyazin",
+          "gender": "M",
+          "height": "161",
+          "weight": "62",
+          "sport": "Gymnastics",
+          "team": "Russia",
+          "noc": "RUS",
+          "age": 24,
+          "event": "Gymnastics Men's Team All-Around",
+          "medal": "Silver"
         }
       ]);
     });
@@ -42,10 +236,19 @@ describe ("dataFunctions",() =>{
 
   //test para filtro de teams
   describe("dataFunctions.teamFilter", () => {
-    it('Debería retornar sólo atletas del mismo equipo "' + dataTestTeam + '"', () => {
-      expect(dataFunctions.teamFilter(dataTestTeam, "Italy")).toEqual([
+    it('Debería retornar sólo atletas del mismo equipo "' + dataTestGender + '"', () => {
+      expect(dataFunctions.teamFilter(dataTestGender, "Italy")).toEqual([
         {
+          "name": "Giovanni Abagnale",
+          "gender": "M",
+          "height": "198",
+          "weight": "90",
+          "sport": "Rowing",
           "team": "Italy",
+          "noc": "ITA",
+          "age": 21,
+          "event": "Rowing Men's Coxless Pairs",
+          "medal": "Bronze"
         }
       ]);
     });
@@ -53,10 +256,19 @@ describe ("dataFunctions",() =>{
 
   //test para filtro de sports
   describe("dataFunctions.sportFilter", () => {
-    it('Debería retornar sólo atletas del mismo deporte "' + dataTestSport + '"', () => {
-      expect(dataFunctions.sportFilter(dataTestSport, "Rowing")).toEqual([
+    it('Debería retornar sólo atletas del mismo deporte "' + dataTestGender + '"', () => {
+      expect(dataFunctions.sportFilter(dataTestGender, "Rowing")).toEqual([
         {
+          "name": "Giovanni Abagnale",
+          "gender": "M",
+          "height": "198",
+          "weight": "90",
           "sport": "Rowing",
+          "team": "Italy",
+          "noc": "ITA",
+          "age": 21,
+          "event": "Rowing Men's Coxless Pairs",
+          "medal": "Bronze"
         }
       ]);
     });
@@ -65,74 +277,521 @@ describe ("dataFunctions",() =>{
 
   //test para filtro de order Age Ascendant
   describe("dataFunctions.orderAgeAscendant", () => {
-    it('Debería retornar la lista de atletas ordenada por edad ascendente"' + dataTestOrderAge + '"', () => {
-      expect(dataFunctions.orderAgeAscendant(dataTestOrderAge)).toEqual(
-        [{"age": 18},{"age": 24},{"age": 25},{"age": 28},{"age": 32},{"age": 36}]
-      );
+    it('Debería retornar la lista de atletas ordenada por edad ascendente"' + dataTestGender + '"', () => {
+      expect(dataFunctions.orderAgeAscendant(dataTestGender)).toEqual([
+        {
+          "name": "Giovanni Abagnale",
+          "gender": "M",
+          "height": "198",
+          "weight": "90",
+          "sport": "Rowing",
+          "team": "Italy",
+          "noc": "ITA",
+          "age": 21,
+          "event": "Rowing Men's Coxless Pairs",
+          "medal": "Bronze"
+        },
+        {
+          "name": "Patimat Abakarova",
+          "gender": "F",
+          "height": "165",
+          "weight": "49",
+          "sport": "Taekwondo",
+          "team": "Azerbaijan",
+          "noc": "AZE",
+          "age": 21,
+          "event": "Taekwondo Women's Flyweight",
+          "medal": "Bronze"
+        },
+        {
+          "name": "Denis Mikhaylovich Ablyazin",
+          "gender": "M",
+          "height": "161",
+          "weight": "62",
+          "sport": "Gymnastics",
+          "team": "Russia",
+          "noc": "RUS",
+          "age": 24,
+          "event": "Gymnastics Men's Team All-Around",
+          "medal": "Silver"
+        },
+        {
+          "name": "Saeid Morad Abdevali",
+          "gender": "M",
+          "height": "170",
+          "weight": "80",
+          "sport": "Wrestling",
+          "team": "Iran",
+          "noc": "IRI",
+          "age": 26,
+          "event": "Wrestling Men's Middleweight, Greco-Roman",
+          "medal": "Bronze"
+        },
+        {
+          "name": "Luc Abalo",
+          "gender": "M",
+          "height": "182",
+          "weight": "86",
+          "sport": "Handball",
+          "team": "France",
+          "noc": "FRA",
+          "age": 31,
+          "event": "Handball Men's Handball",
+          "medal": "Silver"
+        }
+      ]);
     });
   });
 
 
   //test para filtro de order Age Descendant
   describe("dataFunctions.orderAgeDescendant", () => {
-    it('Debería retornar la lista de atletas ordenada por edad descendente"' + dataTestOrderAge + '"', () => {
-      expect(dataFunctions.orderAgeDescendant(dataTestOrderAge)).toEqual(
-        [{"age": 36},{"age": 32},{"age": 28},{"age": 25},{"age": 24},{"age": 18}]
-      );
+    it('Debería retornar la lista de atletas ordenada por edad descendente"' + dataTestGender + '"', () => {
+      expect(dataFunctions.orderAgeDescendant(dataTestGender)).toEqual([
+        {
+          "name": "Luc Abalo",
+          "gender": "M",
+          "height": "182",
+          "weight": "86",
+          "sport": "Handball",
+          "team": "France",
+          "noc": "FRA",
+          "age": 31,
+          "event": "Handball Men's Handball",
+          "medal": "Silver"
+        },
+        {
+          "name": "Saeid Morad Abdevali",
+          "gender": "M",
+          "height": "170",
+          "weight": "80",
+          "sport": "Wrestling",
+          "team": "Iran",
+          "noc": "IRI",
+          "age": 26,
+          "event": "Wrestling Men's Middleweight, Greco-Roman",
+          "medal": "Bronze"
+        },
+        {
+          "name": "Denis Mikhaylovich Ablyazin",
+          "gender": "M",
+          "height": "161",
+          "weight": "62",
+          "sport": "Gymnastics",
+          "team": "Russia",
+          "noc": "RUS",
+          "age": 24,
+          "event": "Gymnastics Men's Team All-Around",
+          "medal": "Silver"
+        },
+        {
+          "name": "Giovanni Abagnale",
+          "gender": "M",
+          "height": "198",
+          "weight": "90",
+          "sport": "Rowing",
+          "team": "Italy",
+          "noc": "ITA",
+          "age": 21,
+          "event": "Rowing Men's Coxless Pairs",
+          "medal": "Bronze"
+        },
+        {
+          "name": "Patimat Abakarova",
+          "gender": "F",
+          "height": "165",
+          "weight": "49",
+          "sport": "Taekwondo",
+          "team": "Azerbaijan",
+          "noc": "AZE",
+          "age": 21,
+          "event": "Taekwondo Women's Flyweight",
+          "medal": "Bronze"
+        }
+      ]);
     });
   });
 
   //test para filtro de order height Ascendant
   describe("dataFunctions.orderHeightAscendant", () => {
-    it('Debería retornar la lista de atletas ordenada por altura ascendente"' + dataTestOrderHeight + '"', () => {
-      expect(dataFunctions.orderHeightAscendant(dataTestOrderHeight)).toEqual(
-        [{"height": 147},{"height": 165},{"height": 179},{"height": 180},{"height": 187},{"height": 192}]
-      );
+    it('Debería retornar la lista de atletas ordenada por altura ascendente"' + dataTestGender + '"', () => {
+      expect(dataFunctions.orderHeightAscendant(dataTestGender)).toEqual([
+        {
+          "name": "Denis Mikhaylovich Ablyazin",
+          "gender": "M",
+          "height": "161",
+          "weight": "62",
+          "sport": "Gymnastics",
+          "team": "Russia",
+          "noc": "RUS",
+          "age": 24,
+          "event": "Gymnastics Men's Team All-Around",
+          "medal": "Silver"
+        },
+        {
+          "name": "Patimat Abakarova",
+          "gender": "F",
+          "height": "165",
+          "weight": "49",
+          "sport": "Taekwondo",
+          "team": "Azerbaijan",
+          "noc": "AZE",
+          "age": 21,
+          "event": "Taekwondo Women's Flyweight",
+          "medal": "Bronze"
+        },
+        {
+          "name": "Saeid Morad Abdevali",
+          "gender": "M",
+          "height": "170",
+          "weight": "80",
+          "sport": "Wrestling",
+          "team": "Iran",
+          "noc": "IRI",
+          "age": 26,
+          "event": "Wrestling Men's Middleweight, Greco-Roman",
+          "medal": "Bronze"
+        },
+        {
+          "name": "Luc Abalo",
+          "gender": "M",
+          "height": "182",
+          "weight": "86",
+          "sport": "Handball",
+          "team": "France",
+          "noc": "FRA",
+          "age": 31,
+          "event": "Handball Men's Handball",
+          "medal": "Silver"
+        },
+        {
+          "name": "Giovanni Abagnale",
+          "gender": "M",
+          "height": "198",
+          "weight": "90",
+          "sport": "Rowing",
+          "team": "Italy",
+          "noc": "ITA",
+          "age": 21,
+          "event": "Rowing Men's Coxless Pairs",
+          "medal": "Bronze"
+        }
+      ]);
     });
   });
 
   //test para filtro de order height Descendant
   describe("dataFunctions.orderHeightDescendant", () => {
-    it('Debería retornar la lista de atletas ordenada por altura descendente"' + dataTestOrderHeight + '"', () => {
-      expect(dataFunctions.orderHeightDescendant(dataTestOrderHeight)).toEqual(
-        [{"height": 192},{"height": 187},{"height": 180},{"height": 179},{"height": 165},{"height": 147}]
-      );
+    it('Debería retornar la lista de atletas ordenada por altura descendente"' + dataTestGender + '"', () => {
+      expect(dataFunctions.orderHeightDescendant(dataTestGender)).toEqual([
+        {
+          "name": "Giovanni Abagnale",
+          "gender": "M",
+          "height": "198",
+          "weight": "90",
+          "sport": "Rowing",
+          "team": "Italy",
+          "noc": "ITA",
+          "age": 21,
+          "event": "Rowing Men's Coxless Pairs",
+          "medal": "Bronze"
+        },
+        {
+          "name": "Luc Abalo",
+          "gender": "M",
+          "height": "182",
+          "weight": "86",
+          "sport": "Handball",
+          "team": "France",
+          "noc": "FRA",
+          "age": 31,
+          "event": "Handball Men's Handball",
+          "medal": "Silver"
+        },
+        {
+          "name": "Saeid Morad Abdevali",
+          "gender": "M",
+          "height": "170",
+          "weight": "80",
+          "sport": "Wrestling",
+          "team": "Iran",
+          "noc": "IRI",
+          "age": 26,
+          "event": "Wrestling Men's Middleweight, Greco-Roman",
+          "medal": "Bronze"
+        },
+        {
+          "name": "Patimat Abakarova",
+          "gender": "F",
+          "height": "165",
+          "weight": "49",
+          "sport": "Taekwondo",
+          "team": "Azerbaijan",
+          "noc": "AZE",
+          "age": 21,
+          "event": "Taekwondo Women's Flyweight",
+          "medal": "Bronze"
+        },
+        {
+          "name": "Denis Mikhaylovich Ablyazin",
+          "gender": "M",
+          "height": "161",
+          "weight": "62",
+          "sport": "Gymnastics",
+          "team": "Russia",
+          "noc": "RUS",
+          "age": 24,
+          "event": "Gymnastics Men's Team All-Around",
+          "medal": "Silver"
+        }
+      ]);
     });
   });
 
   //test para filtro de order weight Ascendant
   describe("dataFunctions.orderWeightAscendant", () => {
-    it('Debería retornar la lista de atletas ordenada por peso ascendente"' + dataTestOrderWeight + '"', () => {
-      expect(dataFunctions.orderWeightAscendant(dataTestOrderWeight)).toEqual(
-        [{"weight": 38},{"weight": 45},{"weight": 49},{"weight": 50},{"weight": 70},{"weight": 100}]
-      );
+    it('Debería retornar la lista de atletas ordenada por peso ascendente"' + dataTestGender + '"', () => {
+      expect(dataFunctions.orderWeightAscendant(dataTestGender)).toEqual([
+        {
+          "name": "Patimat Abakarova",
+          "gender": "F",
+          "height": "165",
+          "weight": "49",
+          "sport": "Taekwondo",
+          "team": "Azerbaijan",
+          "noc": "AZE",
+          "age": 21,
+          "event": "Taekwondo Women's Flyweight",
+          "medal": "Bronze"
+        },
+        {
+          "name": "Denis Mikhaylovich Ablyazin",
+          "gender": "M",
+          "height": "161",
+          "weight": "62",
+          "sport": "Gymnastics",
+          "team": "Russia",
+          "noc": "RUS",
+          "age": 24,
+          "event": "Gymnastics Men's Team All-Around",
+          "medal": "Silver"
+        },
+        {
+          "name": "Saeid Morad Abdevali",
+          "gender": "M",
+          "height": "170",
+          "weight": "80",
+          "sport": "Wrestling",
+          "team": "Iran",
+          "noc": "IRI",
+          "age": 26,
+          "event": "Wrestling Men's Middleweight, Greco-Roman",
+          "medal": "Bronze"
+        },
+        {
+          "name": "Luc Abalo",
+          "gender": "M",
+          "height": "182",
+          "weight": "86",
+          "sport": "Handball",
+          "team": "France",
+          "noc": "FRA",
+          "age": 31,
+          "event": "Handball Men's Handball",
+          "medal": "Silver"
+        },
+        {
+          "name": "Giovanni Abagnale",
+          "gender": "M",
+          "height": "198",
+          "weight": "90",
+          "sport": "Rowing",
+          "team": "Italy",
+          "noc": "ITA",
+          "age": 21,
+          "event": "Rowing Men's Coxless Pairs",
+          "medal": "Bronze"
+        }
+      ]);
     });
   });
 
   //test para filtro de order weight Descendant
   describe("dataFunctions.orderWeightDescendant", () => {
-    it('Debería retornar la lista de atletas ordenada por peso descendente"' + dataTestOrderWeight + '"', () => {
-      expect(dataFunctions.orderWeightDescendant(dataTestOrderWeight)).toEqual(
-        [{"weight": 100},{"weight": 70},{"weight": 50},{"weight": 49},{"weight": 45},{"weight": 38}]
-      );
+    it('Debería retornar la lista de atletas ordenada por peso descendente"' + dataTestGender + '"', () => {
+      expect(dataFunctions.orderWeightDescendant(dataTestGender)).toEqual([
+        {
+          "name": "Giovanni Abagnale",
+          "gender": "M",
+          "height": "198",
+          "weight": "90",
+          "sport": "Rowing",
+          "team": "Italy",
+          "noc": "ITA",
+          "age": 21,
+          "event": "Rowing Men's Coxless Pairs",
+          "medal": "Bronze"
+        },
+        {
+          "name": "Luc Abalo",
+          "gender": "M",
+          "height": "182",
+          "weight": "86",
+          "sport": "Handball",
+          "team": "France",
+          "noc": "FRA",
+          "age": 31,
+          "event": "Handball Men's Handball",
+          "medal": "Silver"
+        },
+        {
+          "name": "Saeid Morad Abdevali",
+          "gender": "M",
+          "height": "170",
+          "weight": "80",
+          "sport": "Wrestling",
+          "team": "Iran",
+          "noc": "IRI",
+          "age": 26,
+          "event": "Wrestling Men's Middleweight, Greco-Roman",
+          "medal": "Bronze"
+        },
+        {
+          "name": "Denis Mikhaylovich Ablyazin",
+          "gender": "M",
+          "height": "161",
+          "weight": "62",
+          "sport": "Gymnastics",
+          "team": "Russia",
+          "noc": "RUS",
+          "age": 24,
+          "event": "Gymnastics Men's Team All-Around",
+          "medal": "Silver"
+        },
+        {
+          "name": "Patimat Abakarova",
+          "gender": "F",
+          "height": "165",
+          "weight": "49",
+          "sport": "Taekwondo",
+          "team": "Azerbaijan",
+          "noc": "AZE",
+          "age": 21,
+          "event": "Taekwondo Women's Flyweight",
+          "medal": "Bronze"
+        },
+      ]);
     });
   });
 
 
   //test para filtro de equipos que se incluyen en la barra desplegable
   describe("dataFunctions.showAllTeams", () => {
-    it('Debería retornar el tamaño de la lista sin equipos repetidos"' + dataTestDropDownListTeam + '"', () => {
-      expect(dataFunctions.showAllTeams(dataTestDropDownListTeam).length).toBe(3);
+    it('Debería retornar el tamaño de la lista sin equipos repetidos"' + dataTestGender + '"', () => {
+      expect(dataFunctions.showAllTeams(dataTestGender).length).toBe(5);
     });
   });
 
   //test para filtro de deportes que se incluyen en la barra desplegable
   describe("dataFunctions.showAllSports", () => {
-    it('Debería retornar el tamaño de la lista sin deportes repetidos"' + dataTestDropDownListSports + '"', () => {
-      expect(dataFunctions.showAllSports(dataTestDropDownListSports).length).toBe(3);
+    it('Debería retornar el tamaño de la lista sin deportes repetidos"' + dataTestGender + '"', () => {
+      expect(dataFunctions.showAllSports(dataTestGender).length).toBe(5);
     });
   });
   
+  //test para calculo agregado
+  describe("dataFunctions.athletesByTeam", () => {
+    it('Debería retornar un objeto con la lista de atletas por cada país "' + dataTestComputeStats + '"', () => {
+      expect(dataFunctions.athletesByTeam(dataTestComputeStats)).toEqual(
+        {Italy: [{
+          "team": "Italy",
+          "medal": "Bronze"
+        },
+        {
+          "team": "Italy",
+          "medal": "Bronze"
+        }, 
+        {
+          "team": "Italy",
+          "medal": "Bronze"
+        },
+        {
+          "team": "Italy",
+          "medal": "Bronze"
+        }
+        ],
+        France: [
+          {
+            "team": "France",
+            "medal": "Silver"
+          }
+        ],
+        Russia: [{
+          "team": "Russia",
+          "medal": "Silver"
+        },
+        {
+          "team": "Russia",
+          "medal": "Silver"
+        },
+        {
+          "team": "Russia",
+          "medal": "Bronze"
+        }
+        ],
+        Australia: [{
+          "team": "Australia",
+          "medal": "Bronze"
+        }
+        ],
+        Jordan: [{
+          "team": "Jordan",
+          "medal": "Gold"
+        }
+        ]
+        }
+      );
+    });
+  });
 
+  //test para calculo agregado de total de medallas
+  describe("dataFunctions.totalMedals", () => {
+    it('Debería retornar el total de medallas por país "' + dataTestFilteredMedals + '"', () => {
+      expect(dataFunctions.totalMedals(dataTestFilteredMedals)).toEqual(
+        {
+          "Australia": {
+            bronce: 1,
+            oro: 0,
+            plata: 0,
+            total: 1,
+          },
+          "France": {
+            bronce: 0,
+            oro: 0,
+            plata: 1, 
+            total: 1,
+          },
+          "Italy": {
+            bronce: 4,
+            oro: 0,
+            plata: 0, 
+            total: 4,
+          },
+          "Jordan": {
+            bronce: 0,
+            oro: 1,
+            plata: 0,
+            total: 1,
+          },
+          "Russia": {
+            bronce: 1, 
+            oro: 0,
+            plata: 2,
+            total: 3,
+          },
+        }
+      );
+    });
+  });
 });
 
