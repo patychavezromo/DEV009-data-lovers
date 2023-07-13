@@ -178,7 +178,7 @@ const dataFunctions= {
 
   athletesByTeam: (allAthletes)=>{
     const valorInicial={};
-    allAthletes.reduce(
+    const atletasPorPais = allAthletes.reduce(
       (atletasPorPais, atletas)=>{
         if(!atletasPorPais[atletas.team]){
           atletasPorPais[atletas.team]=[atletas];
@@ -188,7 +188,7 @@ const dataFunctions= {
         return atletasPorPais;
       }
       ,valorInicial);
-
+    return atletasPorPais;
   },
 
 
@@ -220,11 +220,10 @@ const dataFunctions= {
           total:0
         }
       );
-      return totalDeMedallasPorPais[team]=medallasDelPaisActual;
+      totalDeMedallasPorPais[team] = medallasDelPaisActual;
     }
+    return totalDeMedallasPorPais;
   },
-
-  
 };
 
 
