@@ -110,7 +110,7 @@ h2{
 
 .aside {
     width: 950px;
-    background: #01A750;
+    /*background: #01A750;*/
     float: right;
     margin-top: 325px;
     width: calc(100% - 1380px);

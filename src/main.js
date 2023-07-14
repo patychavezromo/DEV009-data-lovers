@@ -201,3 +201,40 @@ searchBar.addEventListener('keyup',(e) =>{
   showAllCards(filteredAthletes);
 });
 
+
+function createTableTopTen(allAthletes){
+  const allAthletesByTeam= dataFunctions.athletesByTeam(allAthletes);
+  const medalsByTeam=dataFunctions.totalMedalsByTeam(allAthletesByTeam);
+  const medalsByTeamOrderedDescendent=dataFunctions.orderMedalsTopTen(medalsByTeam);
+
+  const table=document.getElementsByClassName('table')[0];
+  for(let i=0; i<medalsByTeamOrderedDescendent.length; i++){
+    const row=document.createElement('tr');
+    row.className='rows';
+
+    const fieldForTeam= document.createElement('td');
+    fieldForTeam.innerText= (i+1)+".- "+medalsByTeamOrderedDescendent[i][0];
+    row.appendChild(fieldForTeam);
+
+    const fieldForGoldMedal= document.createElement('td');
+    fieldForGoldMedal.innerText= medalsByTeamOrderedDescendent[i][1].oro;
+    row.appendChild(fieldForGoldMedal);
+
+    const fieldForSilverMedal= document.createElement('td');
+    fieldForSilverMedal.innerText= medalsByTeamOrderedDescendent[i][1].plata;
+    row.appendChild(fieldForSilverMedal);
+
+    const fieldForBronzeMedal= document.createElement('td');
+    fieldForBronzeMedal.innerText= medalsByTeamOrderedDescendent[i][1].bronce;
+    row.appendChild(fieldForBronzeMedal);
+
+    const fieldForTotalMedalsTeam= document.createElement('td');
+    fieldForTotalMedalsTeam.innerText= medalsByTeamOrderedDescendent[i][1].total;
+    row.appendChild(fieldForTotalMedalsTeam);
+
+    table.appendChild(row);
+  }
+}
+
+createTableTopTen(allAthletes)
+
