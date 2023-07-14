@@ -191,7 +191,6 @@ const dataFunctions= {
     return atletasPorPais;
   },
 
-
   totalMedals: (listAthletesByTeam)=>{
     const totalDeMedallasPorPais={};
     for(const team in listAthletesByTeam){
@@ -224,6 +223,18 @@ const dataFunctions= {
     }
     return totalDeMedallasPorPais;
   },
+
+  orderMedalsTop: (totalMedalsByTeam)=>{
+    const objectToArrayMedalsByTeam= Object.entries(totalMedalsByTeam);
+    objectToArrayMedalsByTeam.sort((a,b)=>{
+      const totalA = a[1].total;
+      const totalB = b[1].total;
+      return totalB - totalA;
+    });
+    return objectToArrayMedalsByTeam;    
+  }, 
+
+  
 };
 
 
