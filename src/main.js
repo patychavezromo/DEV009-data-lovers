@@ -214,6 +214,7 @@ function createTableTopTen(allAthletes){
 
     const fieldForTeam= document.createElement('td');
     fieldForTeam.innerText= (i+1)+".- "+medalsByTeamOrderedDescendent[i][0];
+    fieldForTeam.className= "pais";
     row.appendChild(fieldForTeam);
 
     const fieldForGoldMedal= document.createElement('td');
