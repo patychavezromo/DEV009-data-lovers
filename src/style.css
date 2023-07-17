@@ -6,6 +6,7 @@ header{
     background: #01A750;
     height: 200px;
     display: flex;
+    width: 100%;
 }
 
 .logo img {
@@ -38,8 +39,7 @@ h2{
 }
 
 .main__container{
-    width: 1200px;
-    float: left;
+    flex-grow: 4;
 }
 
 
@@ -108,17 +108,63 @@ h2{
     border: 1px solid #FFFF99;   
 }
 
+#main-section{
+    display: flex;
+}
 .aside {
-    width: 950px;
-    /*background: #01A750;*/
-    float: right;
     margin-top: 325px;
-    width: calc(100% - 1380px);
     height: 100%;
     align-items: flex-start;
     margin-top: 50px;
-    margin-right: 140px;
-    
+    margin-right: 140px;  
+    flex-grow: 1;
+}
+
+article {
+    font-family: "Avenir";
+    justify-items: center;
+    text-align: justify;
+}
+
+.table {
+    border-radius: 20px;
+    border-collapse: collapse;
+    border: 5px solid #FB9A00;
+    border-width: thick;
+    font-family: "Avenir";
+}
+
+thead {
+    border: 5px solid #FB9A00;
+}
+
+tr, td {
+    border: 5px solid #FB9A00;
+    border-width: thin;
+}
+.pais {
+    min-width: 120px;
+    min-height: 130px;
+}
+
+#credits {
+    background: #3157A2;
+    color: white;
+    height: 100px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+}
+
+img[class="footer-image"] {
+    margin: 15px;
+}
+
+footer#credits p {
+    position: absolute;
+    bottom: 0;
+    margin-left: 78%;
 }
 
 @media screen and (min-width: 320px) and (max-width: 480px){
