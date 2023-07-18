@@ -32,7 +32,7 @@ function showAllCards (athletesList){
     content.className= 'content';
 
     const name= document.createElement('p');
-    name.className = 'parrafoNombre';
+    name.className = 'athletesNameOnCard';
     name.innerText= 'Nombre: '+athletesList[i].name;
     content.appendChild(name);
 
@@ -101,7 +101,7 @@ selectedGender.addEventListener('change', ()  => {
     deleteAll;
     showAllCards(maleList);
     break;
-  case 'mostrarTodo':
+  case 'showAll':
     deleteAll;
     showAllCards(allAthletes);
     break;
@@ -113,7 +113,7 @@ const selectedTeam = document.getElementById('team');
 selectedTeam.addEventListener('change', () => {
   const selectedOption = selectedTeam.value; 
 
-  if (selectedTeam.value === "mostrarTodo"){
+  if (selectedTeam.value === "showAll"){
     root.innerHTML= "";
     showAllCards(allAthletes);
   } else {
@@ -128,7 +128,7 @@ const selectedSport = document.getElementById('sport');
 selectedSport.addEventListener('change', () => {
   const selectedOption = selectedSport.value;
 
-  if (selectedSport.value === "mostrarTodo"){
+  if (selectedSport.value === "showAll"){
     root.innerHTML= "";
     showAllCards(allAthletes);
   } else {

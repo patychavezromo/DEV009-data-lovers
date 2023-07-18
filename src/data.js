@@ -177,40 +177,40 @@ const dataFunctions= {
 
 
   athletesByTeam: (allAthletes)=>{
-    const valorInicial={};
-    const atletasPorPais = allAthletes.reduce(
-      (atletasPorPais, atletas)=>{
-        if(!atletasPorPais[atletas.team]){
-          atletasPorPais[atletas.team]=[atletas];
+    const initialValue={};
+    const athletesByCountry = allAthletes.reduce(
+      (athletesByCountry, athletes)=>{
+        if(!athletesByCountry[athletes.team]){
+          athletesByCountry[athletes.team]=[athletes];
         }else{
-          atletasPorPais[atletas.team].push(atletas);
+          athletesByCountry[athletes.team].push(athletes);
         }
-        return atletasPorPais;
+        return athletesByCountry;
       }
-      ,valorInicial);
-    return atletasPorPais;
+      ,initialValue);
+    return athletesByCountry;
   },
 
   totalMedalsByTeam: (listAthletesByTeam)=>{
-    const totalDeMedallasPorPais={};
+    const totalMedals={};
     for(const team in listAthletesByTeam){
-      const medallasDelPaisActual=listAthletesByTeam[team].reduce(
-        (medallasDelPaisActual,atleta)=>{
-          if(atleta.medal==='Gold'){
-            medallasDelPaisActual.oro ++;
+      const currentMedals=listAthletesByTeam[team].reduce(
+        (currentMedals,athlete)=>{
+          if(athlete.medal==='Gold'){
+            currentMedals.oro ++;
           }
-          if(atleta.medal==='Silver'){
-            medallasDelPaisActual.plata ++;
+          if(athlete.medal==='Silver'){
+            currentMedals.plata ++;
           }
-          if(atleta.medal==='Bronze'){
-            medallasDelPaisActual.bronce ++;
+          if(athlete.medal==='Bronze'){
+            currentMedals.bronce ++;
           }
-          medallasDelPaisActual.total=
-                medallasDelPaisActual.oro+
-                medallasDelPaisActual.plata+
-                medallasDelPaisActual.bronce;
+          currentMedals.total=
+                currentMedals.oro+
+                currentMedals.plata+
+                currentMedals.bronce;
                 
-          return medallasDelPaisActual;
+          return currentMedals;
         },
         {
           oro:0,
@@ -219,9 +219,9 @@ const dataFunctions= {
           total:0
         }
       );
-      totalDeMedallasPorPais[team] = medallasDelPaisActual;
+      totalMedals[team] = currentMedals;
     }
-    return totalDeMedallasPorPais;
+    return totalMedals;
   },
 
   orderMedalsTopTen: (totalMedalsByTeam)=>{
