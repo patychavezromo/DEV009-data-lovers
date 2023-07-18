@@ -811,22 +811,22 @@ describe ("dataFunctions",() =>{
   });
 
 
-//test para calculo agregado de ordenamiento de medallas por país
-describe("dataFunctions.orderMedalsTopTen", () => {
-  it('Debería retornar ordenamiento descendente del total de medallas por país "' + dataTestOrderedMedals + '"', () => {
-    expect(dataFunctions.orderMedalsTopTen(dataTestOrderedMedals)).toEqual(
-      [
-        [ 'United States', { oro: 2, plata: 0, bronce: 3, total: 5 } ],
-        [ 'Italy', { oro: 0, plata: 0, bronce: 4, total: 4 } ],
-        [ 'Russia', { oro: 0, plata: 2, bronce: 1, total: 3 } ],
-        [ 'France', { oro: 0, plata: 2, bronce: 0, total: 2 } ],
-        [ 'South Africa', { oro: 0, plata: 0, bronce: 2, total: 2 } ],
-        [ 'Australia', { oro: 0, plata: 0, bronce: 1, total: 1 } ],
-        [ 'Jordan', { oro: 1, plata: 0, bronce: 0, total: 1 } ],
-        [ 'Netherlands', { oro: 0, plata: 1, bronce: 0, total: 1 } ],
-        [ 'Great Britain', { oro: 1, plata: 0, bronce: 0, total: 1 } ],
-        [ 'New Zealand', { oro: 0, plata: 1, bronce: 0, total: 1 } ]
-      ]                 
+  //test para calculo agregado de ordenamiento de medallas por país
+  describe("dataFunctions.orderMedalsTopTen", () => {
+    it('Debería retornar ordenamiento descendente del total de medallas por país "' + dataTestOrderedMedals + '"', () => {
+      expect(dataFunctions.orderMedalsTopTen(dataTestOrderedMedals)).toEqual(
+        [
+          [ 'United States', { oro: 2, plata: 0, bronce: 3, total: 5 } ],
+          [ 'Italy', { oro: 0, plata: 0, bronce: 4, total: 4 } ],
+          [ 'Russia', { oro: 0, plata: 2, bronce: 1, total: 3 } ],
+          [ 'France', { oro: 0, plata: 2, bronce: 0, total: 2 } ],
+          [ 'South Africa', { oro: 0, plata: 0, bronce: 2, total: 2 } ],
+          [ 'Australia', { oro: 0, plata: 0, bronce: 1, total: 1 } ],
+          [ 'Jordan', { oro: 1, plata: 0, bronce: 0, total: 1 } ],
+          [ 'Netherlands', { oro: 0, plata: 1, bronce: 0, total: 1 } ],
+          [ 'Great Britain', { oro: 1, plata: 0, bronce: 0, total: 1 } ],
+          [ 'New Zealand', { oro: 0, plata: 1, bronce: 0, total: 1 } ]
+        ]                 
       );
     });
   });

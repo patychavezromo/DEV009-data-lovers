@@ -13,27 +13,29 @@
   <body>
     <header>
       <img src="rio_2016_olympic_logo_the_branding_journal_2.png" class="logo">
+      <div id="title">
       <h1>Río 2016</h1>
     <h2>Juegos olímpicos</h2>
+  </div>
     </header>
 
     <div class="drop-down-lists">
 
       <select name="gender" id="gender" class="selectors">
         <option disabled selected="">Selecciona género</option>
-        <option value="mostrarTodo">Mostrar todo</option>
+        <option value="showAll">Mostrar todo</option>
         <option value="femenino">Femenino</option>
         <option value="masculino">Masculino</option>
       </select>
 
       <select name="team" id="team" class="selectors">
         <option disabled selected="">Selecciona país</option>
-        <option value="mostrarTodo">Mostrar todo</option>
+        <option value="showAll">Mostrar todo</option>
       </select>
 
       <select name="sport" id="sport" class="selectors">
         <option disabled selected="">Selecciona deporte</option>
-        <option value="mostrarTodo">Mostrar todo</option>
+        <option value="showAll">Mostrar todo</option>
       </select>
 
       <select name="order" id="order" class="selectors">
@@ -59,18 +61,18 @@
     </main>
 
     <aside class="aside">
-      <div>
+      <div id="article">
         <article>
           <p>Los Juegos Olímpicos de Río de Janeiro, fueron un evento multideportivo internacional, celebrado en la ciudad de Río de Janeiro, Brasil. La elección de Río marcó la primera vez que se realiza en un país sudamericano.</p>
         </article>
       </div>
 
-      <div>
+      <div id="table">
         <table class="table">
           <thead>
             <caption>MEDALLERO</caption>
           <tr>
-            <td class="pais">PAÍS</td>
+            <td class="teams">PAÍS</td>
             <td>ORO</td>
             <td>PLATA</td>
             <td>BRONCE</td>
@@ -86,7 +88,12 @@
     </aside>
   </section>
 
-    <footer id="credits"> <img src="./olimpiada-olympic-games-logo.png" class="footer-image"><p>Desarrollado por Patricia Chávez y Andrea Cabrera R.</p></footer>
+    <footer id="credits"> 
+      <img src="./olimpiada-olympic-games-logo.png" class="footer-image">
+      <div id="text-footer">
+      <p>Desarrollado por Patricia Chávez y Andrea Cabrera R.</p>
+    </div>
+    </footer>
 
     
 
