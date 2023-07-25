@@ -200,7 +200,7 @@ Todas las historias de usuario contiene la misma "definition of Done" que se com
 
 Primero se llevó a cabo una investigación sobre los usuarios a partir de los hallazgos otorgados. Con esta información en mente se realizaron bocetos de las funcionalidades de la interfaz, mismas que fueron aterrizadas en las cuatro historias de usuario del apartado anterior; las historias después fueron reunidas en un [prototipo de alta fidelidad](https://www.figma.com/file/t8CW3APCJrWdXy0C1RuKPW/Proyecto2-(Community)?type=design&node-id=0-1&mode=design&t=zCfQDocIG0uOUzM4-0) desarrollado en "Figma", donde se aplicaron los fundamentos del visual design con los colores del logotipo de juegos olímpicos. 
 
-Se aplicó un test de usabilidad al prototipo de alta fidelidad y el feedback recibido fue resuelto en el código; al final de la realizacion del proyecto se volvió a hacer otro test de usabilidad en el que se comprobó el funcionamiento de la aplicación.
+Se aplicó un test de usabilidad al prototipo de alta fidelidad, en el cual se recibió como feedback que hacía falta un buscador por nombre para atletas y un diseño que contrastara los colores que representan a los juegos olímpicos. El feedback recibido fue resuelto en el código; al final de la realizacion del proyecto se volvió a hacer otro test de usabilidad en el que se comprobó el funcionamiento de la aplicación.
 
 Aquí se muestran las iteraciones de cada prototipo:
 
